@@ -1,7 +1,31 @@
+function modulo(a, b) {
+  return a - Math.floor(a/b) * b;
+}
+
+function random(t) {
+  if (t == 0) {
+    return 0.5
+  } else {
+    return modulo(Math.sin(t * 3229.3) * 43758.5453, 1)
+  }
+}
+
+function Name_of_Sharks(id) {
+  const fName = ["Beryl", "Steve", "Mark", "Henry", "Alex", "Cholesterol", "Berry", "John", "Josh", "Abraham", "Celeste", "Galagher"];
+  const lName = ["Blackson", "Alison", "Ying", "Lincon", "Sharky", "Finland", "Johnston", "McDonald", "Ocean", "Jerry", "React", "Rite", "The Shark", "II", "Jr.", "Aerodynamic", "Water Dancer"];
+  
+  const fNameRandom = fName[Math.floor(random(id*5.2) * fName.length)];
+  const lNameRandom = lName[Math.floor(random(id*1.4) * lName.length)];
+
+  return fNameRandom + " " + lNameRandom;
+}
+
+// console.log(Name_of_Sharks());
+
 export const sampleSharks = [
   {
     id: 1,
-    name: "Jaws Jr.",
+    name: "",
     species: "Great White Shark",
     tagId: "GWS-2024-001",
     lat: 36.7783,
@@ -72,3 +96,7 @@ export const sampleSharks = [
     ]
   }
 ]
+
+for (let i = 0; i < sampleSharks.length; i++) {
+  sampleSharks[i].name = "" + Name_of_Sharks(sampleSharks[i].id);
+}

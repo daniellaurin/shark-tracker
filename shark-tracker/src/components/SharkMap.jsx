@@ -27,6 +27,10 @@ function SharkMap({ onSharkSelect }) {
       name: 'Sea Surface Temperature',
       enabled: false,
       legend: 'Ocean temp zones'
+    },
+    test: {
+      name: 'Live Sharks',
+      enabled: false
     }
   })
 
@@ -44,9 +48,10 @@ function SharkMap({ onSharkSelect }) {
 
   return (
     <MapContainer
-      center={[20, -40]}
+      center={[0, -40]}
       zoom={3}
       className="shark-map"
+      id = "sharkMap"
       scrollWheelZoom={true}
     >
       <TileLayer
